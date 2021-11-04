@@ -1,5 +1,7 @@
 import random
 
+
+######################Se generan las listas que se van a utilizar en el programa#####################
 my_list=[]
 hierro=[]
 bronce=[]
@@ -22,14 +24,17 @@ retador_ord=[]
 cont_play=0
 ans=True
 contador=0
+#######Fin de las variables######
 
 
-def list_emp():
-    num_ran = round(random.randint(1,100),0)
+############ FUNCIONES ########
+
+def list_emp():  #Genera una lista de 1 a 100 numeros aleatorios con valores de  0.00 a 8.99
+    num_ran = random.randint(1,100)
     for i in range (num_ran):
         my_list.append(round(random.uniform(0.00, 8.99),2))
 
-def crea_div():
+def crea_div(): #Genera las divisiones en base a la lista que define la funcion list_emp
     contador=0
     while contador < len(my_list):
         if (my_list[contador] >= 0.00) and (my_list[contador]) <= 0.99:
@@ -56,7 +61,7 @@ def crea_div():
         contador+=1           
 
 
-def clsifica():
+def clsifica(): #Ordena y clasifica cada una de las divisiones creadas en crea_div
     
     hierro_ord=hierro.copy()
     hierro_ord.sort()
@@ -96,13 +101,13 @@ def clsifica():
 
 
 
-def sumalista(listaNumeros):
+def sumalista(listaNumeros): #Funcion para sumar los valores de una lista
     laSuma = 0
     for i in listaNumeros:
         laSuma = laSuma + i
     return laSuma
 
-def prom_div(listaNumeros):
+def prom_div(listaNumeros): #Funcion para calcular el promedio del valor residual de una lista de numeros
     laSuma = 0
     promedio=0
     if len(listaNumeros)!=0:
@@ -113,139 +118,219 @@ def prom_div(listaNumeros):
         promedio=0    
     return promedio
 
-def listOrd():
-    ordenada = my_list.copy() 
-    ordenada.sort()
-
-def mejorJugador():
-    print(" ")
-    print(" ")
-    ordenada = my_list.copy() 
-    ordenada.sort()
-    mejor_jugador=ordenada[len(ordenada)-1]
-    print("EL JUGADOR CON LA MAYOR DIVISION Y PUNTUACIÓN ES : ",mejor_jugador)
-    print(" ")
-    print(" ")     ###punto 5#### 
-
-def menorJugador():
-    print(" ")
-    print(" ")
-    ordenada = my_list.copy() 
-    ordenada.sort()
-    print("EL JUGADOR CON LA MENOR DIVISION Y MENOR PUNTUACIÓN ES : ",ordenada[0])####punto 6####
-    print(" ")
-    print(" ")
-
-
-def consultLiga():
-    print(" ")
-    print(" ")
-    print("***********CONSULTA DE PROMEDIO DE DIVISION***********")
-    print("0 HIERRO")
-    print("1 BRONCE")
-    print("2 PLATA")
-    print("3 ORO")
-    print("4 PLATINO")
-    print("5 DIAMANTE")
-    print("6 MAESTRO")
-    print("7 GRAN MAESTRO")
-    print("8 RETADOR")
-    consult_divi=int(input("INGRESE EL NUMERO DE DIVISION "))
-    print(" ")
-    print(" ")
-    if consult_divi==0:
-        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION HIERRO ES DE: ",prom_div(hierro))
-    elif consult_divi==1:
-        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION BRONCE ES DE: ",prom_div(bronce))
-    elif consult_divi==2:
-        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION PLATA ES DE: ",prom_div(plata))
-    elif consult_divi==3:
-        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION ORO ES DE: ",prom_div(oro))
-    elif consult_divi==4:
-        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION PLATINO ES DE: ",prom_div(platino))
-    elif consult_divi==5:
-        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION DIAMANTE ES DE: ",prom_div(diamante))
-    elif consult_divi==6:
-        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION MAESTRO ES DE: ",prom_div(maestro))
-    elif consult_divi==7:
-        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION GRAN MAESTRO ES DE: ",prom_div(gran_maestro))
-    elif consult_divi==8:
-        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION RETADOR ES DE: ",prom_div(retador))
+def listOrd(): #Esta funcion ordena de menor a mayor my_list, con esto podemos saber cual es el valor menor y el valor mayor de la lista
+    if len(my_list)!=0:
+        ordenada = my_list.copy() 
+        ordenada.sort()
     else:
-        print("SELECCION NO VALIDA")
-    print(" ")
-    print(" ")
+        print(" ")
+        print(" ")
+        print("NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal")
+        print(" ")
+        print(" ")
 
 
-def promDiv():
-    print(" ")
-    print(" ")
-    print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION HIERRO ES DE: ",prom_div(hierro))
-    print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION BRONCE ES DE: ",prom_div(bronce))
-    print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION PLATA ES DE: ",prom_div(plata))
-    print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION ORO ES DE: ",prom_div(oro))
-    print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION PLATINO ES DE: ",prom_div(platino))
-    print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION DIAMANTE ES DE: ",prom_div(diamante))
-    print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION MAESTRO ES DE: ",prom_div(maestro))
-    print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION GRAN MAESTRO ES DE: ",prom_div(gran_maestro))
-    print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION RETADOR ES DE: ",prom_div(retador))
-    print(" ")
-    print(" ")
+def mejorJugador(): #Esta función devuelve el ultimo valor de la lista ordenada
+    if len(my_list)!=0:
+
+        print(" ")
+        print(" ")
+        ordenada = my_list.copy() 
+        ordenada.sort()
+        mejor_jugador=ordenada[len(ordenada)-1]
+        print("EL JUGADOR CON LA MAYOR DIVISION Y PUNTUACIÓN ES : ",mejor_jugador)
+        print(" ")
+        print(" ")
+
+    else:
+        print(" ")
+        print(" ")
+        print("NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal")
+        print(" ")
+        print(" ")
 
 
-def jugad_lista():
-    print(" ")
-    print(" ")
-    print("***********LISTA DE JUGADORES ALEATORIA***********")
-    print(my_list)
-    print(" ")
-    print(" ")
+def menorJugador(): #Esta funcion devuelve el primer valor de la lista ordenada
+    if len(my_list)!=0:
+
+        print(" ")
+        print(" ")
+        ordenada = my_list.copy() 
+        ordenada.sort()
+        print("EL JUGADOR CON LA MENOR DIVISION Y MENOR PUNTUACIÓN ES : ",ordenada[0])####punto 6####
+        print(" ")
+        print(" ")
+    else:
+        print(" ")
+        print(" ")
+        print("NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal")
+        print(" ")
+        print(" ")
+
+
+def consultLiga(): #Esta funcion calcula el promedio de una division dada
+    if len(my_list)!=0:
+
+        print(" ")
+        print(" ")
+        print("***********CONSULTA DE PROMEDIO DE DIVISION***********")
+        print("0 HIERRO")
+        print("1 BRONCE")
+        print("2 PLATA")
+        print("3 ORO")
+        print("4 PLATINO")
+        print("5 DIAMANTE")
+        print("6 MAESTRO")
+        print("7 GRAN MAESTRO")
+        print("8 RETADOR")
+        print(" ")
+        consult_divi=int(input("INGRESE EL NUMERO DE DIVISION "))
+        print(" ")
+        print(" ")
+        if consult_divi==0:
+            print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION HIERRO ES DE: ",prom_div(hierro))
+        elif consult_divi==1:
+            print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION BRONCE ES DE: ",prom_div(bronce))
+        elif consult_divi==2:
+            print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION PLATA ES DE: ",prom_div(plata))
+        elif consult_divi==3:
+            print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION ORO ES DE: ",prom_div(oro))
+        elif consult_divi==4:
+            print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION PLATINO ES DE: ",prom_div(platino))
+        elif consult_divi==5:
+            print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION DIAMANTE ES DE: ",prom_div(diamante))
+        elif consult_divi==6:
+            print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION MAESTRO ES DE: ",prom_div(maestro))
+        elif consult_divi==7:
+            print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION GRAN MAESTRO ES DE: ",prom_div(gran_maestro))
+        elif consult_divi==8:
+            print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION RETADOR ES DE: ",prom_div(retador))
+        else:
+            print(" ")
+            print(" ")
+            print("SELECCION NO VALIDA")
+        print(" ")
+        print(" ")
     
+    else:
+        print(" ")
+        print(" ")
+        print("NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal")
+        print(" ")
+        print(" ")
 
-def prom_Todos():
+
+
+def promDiv(): #Esta funcion devuelve el promedio cada una de las divisiones
+    if len(my_list)!=0:
+
+        print(" ")
+        print(" ")
+        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION HIERRO ES DE: ",prom_div(hierro))
+        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION BRONCE ES DE: ",prom_div(bronce))
+        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION PLATA ES DE: ",prom_div(plata))
+        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION ORO ES DE: ",prom_div(oro))
+        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION PLATINO ES DE: ",prom_div(platino))
+        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION DIAMANTE ES DE: ",prom_div(diamante))
+        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION MAESTRO ES DE: ",prom_div(maestro))
+        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION GRAN MAESTRO ES DE: ",prom_div(gran_maestro))
+        print("EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION RETADOR ES DE: ",prom_div(retador))
+        print(" ")
+        print(" ")
+    
+    else:
+        print(" ")
+        print(" ")
+        print("NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal")
+        print(" ")
+        print(" ")
+
+
+def jugad_lista(): #Esta funcion imprime my_list
+    if len(my_list)!=0:
+
+        print(" ")
+        print(" ")
+        print("***********LISTA DE JUGADORES ALEATORIA***********")
+        print(my_list)
+        print(" ")
+        print(" ")
+    else:
+        print(" ")
+        print(" ")
+        print("NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal")
+        print(" ")
+        print(" ")
+
+
+def prom_Todos(): #esta funcion calcula el promedio de todas las divisiones
+
     total=(prom_div(hierro)+prom_div(bronce)+prom_div(plata)+prom_div(oro)+prom_div(platino)+prom_div(diamante)+prom_div(maestro)+prom_div(gran_maestro)+prom_div(retador))/9
     print(" ")
     print(" ")
+    
     return total
     
-def promedio_todos():
-    print(" ")
-    print(" ")
-    print("EL PROMEDIO DE PUNTUACION DE TODAS LAS DIVISIONES ES : ",prom_Todos())
-    print(" ")
-    print(" ")
+def promedio_todos(): #Esta funcion imprime el promedio de todas las divisiones
+    if len(my_list)!=0:
+
+        print(" ")
+        print(" ")
+        print("EL PROMEDIO DE PUNTUACION DE TODAS LAS DIVISIONES ES : ",prom_Todos())
+        print(" ")
+        print(" ")
+    else:
+        print(" ")
+        print(" ")
+        print("NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal")
+        print(" ")
+        print(" ")
+
     
-def cantJugadores():
-    print("***********CANTIDAD DE JUGADORES POR DIVISION***********") ##punto 10##
-    print(" ")
-    print(" ")
-    print("HIERRO ",len(hierro), "JUGADORES")
-    print("BRONCE ",len(bronce),"JUGADORES")
-    print("PLATA ",len(plata), "JUGADORES")
-    print("ORO ",len(oro), "JUGADORES")
-    print("PLATINO",len(platino), "JUGADORES")
-    print("DIAMANTE ",len(diamante), "JUGADORES")
-    print("MAESTRO ",len(maestro), "JUGADORES")
-    print("GRAN MAESTRO ",len(gran_maestro), "JUGADORES")
-    print("RETADOR ",len(retador), "JUGADORES")
-    print(" ")
-    print(" ")
+def cantJugadores(): # esta funcion imprime los jugadores de cada división
+    if len(my_list)!=0:
+
+        print("***********CANTIDAD DE JUGADORES POR DIVISION***********") 
+        print(" ")
+        print(" ")
+        print("HIERRO ",len(hierro), "JUGADORES")
+        print("BRONCE ",len(bronce),"JUGADORES")
+        print("PLATA ",len(plata), "JUGADORES")
+        print("ORO ",len(oro), "JUGADORES")
+        print("PLATINO",len(platino), "JUGADORES")
+        print("DIAMANTE ",len(diamante), "JUGADORES")
+        print("MAESTRO ",len(maestro), "JUGADORES")
+        print("GRAN MAESTRO ",len(gran_maestro), "JUGADORES")
+        print("RETADOR ",len(retador), "JUGADORES")
+        print(" ")
+        print(" ")
+
+    else:
+        print(" ")
+        print(" ")
+        print("NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal")
+        print(" ")
+        print(" ")
 
 
-def num_jugadores():
-    print(" ")
-    print(" ")
-    print("HAY ",len(my_list), "JUGADORES")
-    print(" ")
-    print(" ")
+  
+def num_jugadores(): #esta funcion imprime la cantidad de jugadores
+    if len(my_list)!=0:
 
+        print(" ")
+        print(" ")
+        print("HAY ",len(my_list), "JUGADORES")
+        print(" ")
+        print(" ")
 
+    else:
+        print(" ")
+        print(" ")
+        print("NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal")
+        print(" ")
+        print(" ")
 
-########LISTA DE EMPAREJAMIENTO########
-
-
-
-
+########################FIN DE LAS FUNCIONES##################
 
 print("-------BIENVENIDO A LIGUE OF ANDRE-------")
 print("                  /\                     ")
@@ -301,7 +386,7 @@ while ans:
         input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
     
     elif menu_select==4:
-        
+        3
         clsifica()
         input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
     
@@ -341,6 +426,8 @@ while ans:
         input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
 
     elif menu_select == 12:
+        print(" ")
+        print(" ")
+        print("(:  GRACIAS POR JUGAR  :)")
+        
         ans = False
-
-
