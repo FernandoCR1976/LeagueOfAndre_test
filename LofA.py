@@ -81,29 +81,29 @@ def clsifica(): #Ordena y clasifica cada una de las divisiones creadas en crea_d
     retador_ord=retador.copy()
     retador_ord.sort()
     
-    print("\n","***********CLASIFICACIÓN DE DIVISIONES***********","\n"," HIERRO ",hierro_ord ,
+    print("\n","***********CLASIFICACIÓN DE DIVISIONES***********\n"," HIERRO ",hierro_ord ,
     "\n  BRONCE ",bronce_ord,"\n  PLATA ",plata_ord,"\n  ORO ",oro_ord,"\n  PLATINO",platino_ord,
     "\n  DIAMANTE ",diamante_ord,"\n  MAESTRO ",maestro_ord,"\n  GRAN MAESTRO ",gran_maestro_ord,
     "\n  RETADOR ",retador_ord,"\n")
 
-def sumalista(listaNumeros): #Funcion para sumar los valores de una lista
-    laSuma = 0
-    for i in listaNumeros:
-        laSuma = laSuma + i
-    return laSuma
+def suma_lista(lista_numeros): #Funcion para sumar los valores de una lista
+    la_suma = 0
+    for i in lista_numeros:
+        la_suma = la_suma + i
+    return la_suma
 
-def prom_div(listaNumeros): #Funcion para calcular el promedio del valor residual de una lista de numeros
-    laSuma = 0
+def prom_div(lista_numeros): #Funcion para calcular el promedio del valor residual de una lista de numeros
+    la_suma = 0
     promedio=0
-    if len(listaNumeros)!=0:
-        for i in listaNumeros:
-            laSuma = laSuma + i
-            promedio = round((((laSuma / int(len(listaNumeros)))%1)*100),2)
+    if len(lista_numeros)!=0:
+        for i in lista_numeros:
+            la_suma = la_suma + i
+            promedio = round((((la_suma / int(len(lista_numeros)))%1)*100),2)
     else:
         promedio=0    
     return promedio
 
-def listOrd(): #Esta funcion ordena de menor a mayor my_list, con esto podemos saber cual es el valor menor y el valor mayor de la lista
+def list_ord(): #Esta funcion ordena de menor a mayor my_list, con esto podemos saber cual es el valor menor y el valor mayor de la lista
     if len(my_list)!=0:
         ordenada = my_list.copy() 
         ordenada.sort()
@@ -111,7 +111,7 @@ def listOrd(): #Esta funcion ordena de menor a mayor my_list, con esto podemos s
         print("\n","NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal","\n")
         
 
-def mejorJugador(): #Esta función devuelve el ultimo valor de la lista ordenada
+def mejor_jugador(): #Esta función devuelve el ultimo valor de la lista ordenada
     if len(my_list)!=0:
 
         ordenada = my_list.copy() 
@@ -123,7 +123,7 @@ def mejorJugador(): #Esta función devuelve el ultimo valor de la lista ordenada
         print("\n","NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal","\n")
         
 
-def menorJugador(): #Esta funcion devuelve el primer valor de la lista ordenada
+def menor_jugador(): #Esta funcion devuelve el primer valor de la lista ordenada
     if len(my_list)!=0:
 
         ordenada = my_list.copy() 
@@ -134,7 +134,7 @@ def menorJugador(): #Esta funcion devuelve el primer valor de la lista ordenada
         print("\n","NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal","\n")
     
 
-def consultLiga(): #Esta funcion calcula el promedio de una division dada
+def consulta_liga(): #Esta funcion calcula el promedio de una division dada
     if len(my_list)!=0:
 
         print("\n","***********CONSULTA DE PROMEDIO DE DIVISION***********"
@@ -169,7 +169,7 @@ def consultLiga(): #Esta funcion calcula el promedio de una division dada
         print("\n","NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal","\n")
         
 
-def promDiv(): #Esta funcion devuelve el promedio cada una de las divisiones
+def promedio_divisiones(): #Esta funcion devuelve el promedio cada una de las divisiones
     if len(my_list)!=0:
 
         print("\n EL PROMEDIO DE PUNTUACIÓN DE LA DIVISION HIERRO ES DE: ",prom_div(hierro),
@@ -194,22 +194,23 @@ def jugad_lista(): #Esta funcion imprime my_list
         print("\n","NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal","\n")
         
 
-def prom_Todos(): #esta funcion calcula el promedio de todas las divisiones
+def prom_todas_divisiones(): #esta funcion calcula el promedio de todas las divisiones
 
-    total=(prom_div(hierro)+prom_div(bronce)+prom_div(plata)+prom_div(oro)+prom_div(platino)+prom_div(diamante)+prom_div(maestro)+prom_div(gran_maestro)+prom_div(retador))/9
+    promedio=(prom_div(hierro)+prom_div(bronce)+prom_div(plata)+prom_div(oro)+prom_div(platino)+prom_div(diamante)+prom_div(maestro)+prom_div(gran_maestro)+prom_div(retador))/9
     print(" ")
+    total=round(promedio,2)
     
     return total
     
 def promedio_todos(): #Esta funcion imprime el promedio de todas las divisiones
     if len(my_list)!=0:
 
-        print("\n","EL PROMEDIO DE PUNTUACION DE TODAS LAS DIVISIONES ES : ",prom_Todos(),"\n")
+        print("\n","EL PROMEDIO DE PUNTUACION DE TODAS LAS DIVISIONES ES : ",prom_todas_divisiones(),"\n")
         
     else:
         print("\n","NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal","\n")
             
-def cantJugadores(): # esta funcion imprime los jugadores de cada división
+def cant_jugadores(): # esta funcion imprime los jugadores de cada división
     if len(my_list)!=0:
 
         print("\n","***********CANTIDAD DE JUGADORES POR DIVISION***********","\n", 
@@ -255,7 +256,7 @@ print(" ")
 
 
 while ans:
-    print("\n"," 1. Generar lista de emparejamiento.","\n 2. Ordenar los jugadores en las listas. ",
+    print("\n","1. Generar lista de emparejamiento.","\n 2. Ordenar los jugadores en las listas. ",
     "\n 3. Mostrar la lista inicial de jugadores.",
     "\n 4. Mostrar las listas de cada división luego de ubicar a los jugadores.",
     "\n 5. El jugador con mayor división y puntuación.",
@@ -277,7 +278,7 @@ while ans:
     
     elif menu_select==2:
         
-        listOrd()
+        list_ord()
         print(" ")
         input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
         
@@ -293,22 +294,22 @@ while ans:
     
     elif menu_select==5:
         
-        mejorJugador() 
+        mejor_jugador() 
         input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
 
     elif menu_select==6:
         
-        menorJugador()
+        menor_jugador()
         input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
 
     elif menu_select==7:
         
-        promDiv()
+        promedio_divisiones()
         input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
 
     elif menu_select==8:
         
-        consultLiga()
+        consulta_liga()
         input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
 
     elif menu_select==9:
@@ -318,7 +319,7 @@ while ans:
 
     elif menu_select==10:
 
-        cantJugadores()       
+        cant_jugadores()       
         input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
     
     elif menu_select==11:
