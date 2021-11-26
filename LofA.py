@@ -22,7 +22,6 @@ maestro_ord=[]
 gran_maestro_ord=[]
 retador_ord=[]
 cont_play=0
-ans=True
 contador=0
 #######Fin de las variables######
 
@@ -61,13 +60,14 @@ def crea_div(): #Genera las divisiones en base a la lista que define la funcion 
         contador+=1           
 
 
-def clsifica(): #Ordena y clasifica cada una de las divisiones creadas en crea_div, OPCION 4 DEL MENU PRINCIPAL
+def clasifica(): #Ordena y clasifica cada una de las divisiones creadas en crea_div, OPCION 4 DEL MENU PRINCIPAL
     
     hierro_ord=hierro.copy()
     hierro_ord.sort()
     bronce_ord=bronce.copy()
     bronce_ord.sort()
     plata_ord=plata.copy()
+    plata_ord.sort()
     oro_ord=oro.copy()
     oro_ord.sort()
     platino_ord=platino.copy()
@@ -233,102 +233,111 @@ def num_jugadores(): #esta funcion imprime la cantidad de jugadores
         print("\n","HAY ",len(my_list), "JUGADORES","\n")
     else:
         print("\n","NO EXISTEN DIVISIONES CREADAS, Seleccione la opcion 1 en el menu principal","\n")
+
+
+def menu():
+    ans=True
+    while ans:
+        print("\n","1. Generar lista de emparejamiento.","\n 2. Ordenar los jugadores en las listas. ",
+        "\n 3. Mostrar la lista inicial de jugadores.",
+        "\n 4. Mostrar las listas de cada división luego de ubicar a los jugadores.",
+        "\n 5. El jugador con mayor división y puntuación.",
+        "\n 6. El jugador con menor división y menor puntuación. ",
+        "\n 7. El promedio de todas las divisiones en base a cuantos jugadores contiene.",
+        "\n 8. El promedio de puntuación dada una división.",
+        "\n 9. El promedio de puntuación de todas las divisiones.",
+        "\n 10. Cantidad de jugadores por división.",
+        "\n 11. Cantidad de jugadores totales. \n 12. Salir del programa.","\n")
         
+        menu_select=int(input("POR FAVOR INGRESE LA OPCION DESEADA "))    
+
+        if menu_select==1:
+            
+            list_emp()
+            crea_div()
+            print(" ")
+            input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")       
+        
+        elif menu_select==2:
+            
+            list_ord()
+            print(" ")
+            input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
+            
+        elif menu_select==3:
+            
+            jugad_lista()
+            input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
+        
+        elif menu_select==4:
+            
+            clasifica()
+            input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
+        
+        elif menu_select==5:
+            
+            mejor_jugador() 
+            input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
+
+        elif menu_select==6:
+            
+            menor_jugador()
+            input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
+
+        elif menu_select==7:
+            
+            promedio_divisiones()
+            input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
+
+        elif menu_select==8:
+            
+            consulta_liga()
+            input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
+
+        elif menu_select==9:
+
+            promedio_todos()
+            input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
+
+        elif menu_select==10:
+
+            cant_jugadores()       
+            input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
+        
+        elif menu_select==11:
+
+            num_jugadores()
+            input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
+
+        elif menu_select == 12:
+
+            print("\n"," (:  GRACIAS POR JUGAR  :)", "\n")
+            
+            ans = False
+
+def bienvenida():
+
+    print("-------BIENVENIDO A LIGUE OF ANDRE-------")
+    print("                  /\                     ")
+    print("                  ||                     ")
+    print("                  ||                     ")
+    print("                  ||                     ")
+    print("                  ||                     ")    
+    print("                  ||                     ")
+    print("                  ||                     ")
+    print("                  ||                     ")
+    print("                  ||                     ")
+    print("                  ||                     ")
+    print("                [====]                     ")
+    print("                  ||                     ")
+    print("                  ||                     ")
+    print("                 [==]                     ")
+    print("-----------------------------------------")
+    print(" ")        
 ########################FIN DE LAS FUNCIONES##################
 
-print("-------BIENVENIDO A LIGUE OF ANDRE-------")
-print("                  /\                     ")
-print("                  ||                     ")
-print("                  ||                     ")
-print("                  ||                     ")
-print("                  ||                     ")    
-print("                  ||                     ")
-print("                  ||                     ")
-print("                  ||                     ")
-print("                  ||                     ")
-print("                  ||                     ")
-print("                [====]                     ")
-print("                  ||                     ")
-print("                  ||                     ")
-print("                 [==]                     ")
-print("-----------------------------------------")
-print(" ")
+bienvenida()
+menu()
 
 
-while ans:
-    print("\n","1. Generar lista de emparejamiento.","\n 2. Ordenar los jugadores en las listas. ",
-    "\n 3. Mostrar la lista inicial de jugadores.",
-    "\n 4. Mostrar las listas de cada división luego de ubicar a los jugadores.",
-    "\n 5. El jugador con mayor división y puntuación.",
-    "\n 6. El jugador con menor división y menor puntuación. ",
-    "\n 7. El promedio de todas las divisiones en base a cuantos jugadores contiene.",
-    "\n 8. El promedio de puntuación dada una división.",
-    "\n 9. El promedio de puntuación de todas las divisiones.",
-    "\n 10. Cantidad de jugadores por división.",
-    "\n 11. Cantidad de jugadores totales. \n 12. Salir del programa.","\n")
-    
-    menu_select=int(input("POR FAVOR INGRESE LA OPCION DESEADA "))    
-
-    if menu_select==1:
-        
-        list_emp()
-        crea_div()
-        print(" ")
-        input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")       
-    
-    elif menu_select==2:
-        
-        list_ord()
-        print(" ")
-        input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
-        
-    elif menu_select==3:
-        
-        jugad_lista()
-        input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
-    
-    elif menu_select==4:
-        
-        clsifica()
-        input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
-    
-    elif menu_select==5:
-        
-        mejor_jugador() 
-        input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
-
-    elif menu_select==6:
-        
-        menor_jugador()
-        input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
-
-    elif menu_select==7:
-        
-        promedio_divisiones()
-        input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
-
-    elif menu_select==8:
-        
-        consulta_liga()
-        input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
-
-    elif menu_select==9:
-
-        promedio_todos()
-        input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
-
-    elif menu_select==10:
-
-        cant_jugadores()       
-        input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
-    
-    elif menu_select==11:
-
-        num_jugadores()
-        input("PRESIONE ENTER PARA VOLVER AL MENU PRINCIPAL")
-
-    elif menu_select == 12:
-
-        print("\n"," (:  GRACIAS POR JUGAR  :)", "\n")
-        
-        ans = False
+       
