@@ -86,11 +86,6 @@ def clasifica(): #Ordena y clasifica cada una de las divisiones creadas en crea_
     "\n  DIAMANTE ",diamante_ord,"\n  MAESTRO ",maestro_ord,"\n  GRAN MAESTRO ",gran_maestro_ord,
     "\n  RETADOR ",retador_ord,"\n")
 
-def suma_lista(lista_numeros): #Funcion para sumar los valores de una lista
-    la_suma = 0
-    for i in lista_numeros:
-        la_suma = la_suma + i
-    return la_suma
 
 def prom_div(lista_numeros): #Funcion para calcular el promedio del valor residual de una lista de numeros
     la_suma = 0
